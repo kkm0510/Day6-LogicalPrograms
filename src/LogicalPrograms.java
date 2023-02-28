@@ -102,10 +102,19 @@ public class LogicalPrograms {
         System.out.println("Total random numbers needed to have all distinct numbers : " + count);
     }
 
+    public void stopWatch() {
+        int mins = 0;
+        while ((int) (Math.random() * 10 % 5) != 0) {
+            mins++;
+        }
+        System.out.println("Time elapsed = " + mins + " minutes");
+    }
+
+
     public static void main(String[] args) {
         LogicalPrograms logic = new LogicalPrograms();
         System.out.println("Enter Choice : ");
-        System.out.print("1)Fibonacci Series  2)Perfect Number 3)Prime Number 4)Reverse a num 5)Coupon Numbers : ");
+        System.out.print("1)Fibonacci Series  2)Perfect Number 3)Prime Number 4)Reverse a num 5)Coupon Numbers 6)Stopwatch: ");
         int choice = sc.nextInt();
         switch (choice) {
             case 1 -> logic.fibonacci();
@@ -113,6 +122,7 @@ public class LogicalPrograms {
             case 3 -> logic.primeNumber();
             case 4 -> logic.reverseNumber();
             case 5 -> logic.couponNumber();
+            case 6 -> logic.stopWatch();
         }
     }
 }
