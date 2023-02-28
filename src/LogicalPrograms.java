@@ -5,7 +5,7 @@ public class LogicalPrograms {
     static Scanner sc=new Scanner(System.in);
 
     public void fibonacci() {
-        System.out.println("Enter number : ");
+        System.out.print("Enter number : ");
         int n=sc.nextInt();
         int i = 0;
         int j = 1;
@@ -18,8 +18,28 @@ public class LogicalPrograms {
         System.out.println();
     }
 
+    public void perfectNumber() {
+        System.out.print("Enter number : ");
+        int n=sc.nextInt();
+        int sum = 0;
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0)
+                sum += i;
+        }
+        if (sum == n)
+            System.out.println("It is a perfect number");
+        else
+            System.out.println("Not a perfect number");
+    }
+
     public static void main(String[] args) {
         LogicalPrograms logic = new LogicalPrograms();
-        logic.fibonacci();
+        System.out.println("Enter Choice : ");
+        System.out.print("1) Fibonacci Series  2) Perfect Number : ");
+        int choice=sc.nextInt();
+        switch (choice){
+            case 1 -> logic.fibonacci();
+            case 2 -> logic.perfectNumber();
+        }
     }
 }
