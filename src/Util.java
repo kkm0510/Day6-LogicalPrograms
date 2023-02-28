@@ -62,16 +62,13 @@ public class Util {
         System.out.println("Ans = " + t);
     }
 
-    public static String toBinary(int num) {
+    public static StringBuilder toBinary(int num) {
         StringBuilder s=new StringBuilder();
         while(num!=0){
             s.append(num%2);
             num=num/2;
         }
-        while(s.length()<8){
-            s.append(0);
-        }
-        return s.reverse().toString();
+        return s.reverse();
     }
 
     public static void main(String[] args) {
@@ -85,7 +82,7 @@ public class Util {
             case 4 -> sqrt();
             case 5 -> {
                 System.out.print("Enter a number : ");
-                String s = toBinary(sc.nextInt());
+                StringBuilder s = toBinary(sc.nextInt());
                 System.out.println("Binary = " + s);
             }
         }
