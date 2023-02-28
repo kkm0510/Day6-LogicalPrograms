@@ -32,6 +32,6 @@ public class Binary {
             }
             i++;
         }
-        System.out.println(num);
+        System.out.println("Ans = " + num);
     }
 }
