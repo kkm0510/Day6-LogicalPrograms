@@ -37,13 +37,27 @@ public class Util {
         temperatureConversion(temp, choice);
     }
 
+    public static void monthlyPayment() {
+        System.out.print("Enter principal amount : ");
+        int P = sc.nextInt();
+        System.out.print("Enter no of years : ");
+        int Y = sc.nextInt();
+        System.out.print("Enter rate : ");
+        float R = sc.nextFloat();
+        int n = 12 * Y;
+        float r = R / (12 * 100);
+        float payment = (float) ((P * r) / (1 - Math.pow(1 + r, -n)));
+        System.out.println("Monthly Payment = " + payment);
+    }
+
     public static void main(String[] args) {
         System.out.println("Enter Choice : ");
-        System.out.println("1)Day of week  2)temperature conversion : ");
+        System.out.println("1)Day of week  2)temperature conversion 3)Monthly payment : ");
         int choice = sc.nextInt();
         switch (choice) {
             case 1 -> operateDayOfWeek();
             case 2 -> operateTempConversion();
+            case 3 -> monthlyPayment();
         }
     }
 }
