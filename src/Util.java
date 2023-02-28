@@ -50,14 +50,26 @@ public class Util {
         System.out.println("Monthly Payment = " + payment);
     }
 
+    public static void sqrt() {
+        System.out.println("Enter a non negative number c : ");
+        int c = sc.nextInt();
+        double t = c;
+        double epsilon = 1e-15;
+        while (Math.abs(t - c / t) > epsilon * t) {
+            t = (c / t + t) / 2.0;
+        }
+        System.out.println("Ans = " + t);
+    }
+
     public static void main(String[] args) {
         System.out.println("Enter Choice : ");
-        System.out.println("1)Day of week  2)temperature conversion 3)Monthly payment : ");
+        System.out.println("1)Day of week  2)temperature conversion 3)Monthly payment 4)Square root : ");
         int choice = sc.nextInt();
         switch (choice) {
             case 1 -> operateDayOfWeek();
             case 2 -> operateTempConversion();
             case 3 -> monthlyPayment();
+            case 4 -> sqrt();
         }
     }
 }
