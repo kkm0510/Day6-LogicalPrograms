@@ -32,14 +32,27 @@ public class LogicalPrograms {
             System.out.println("Not a perfect number");
     }
 
+    public void primeNumber() {
+        System.out.print("Enter number : ");
+        int n=sc.nextInt();
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                System.out.println("Not a prime number");
+                return;
+            }
+        }
+        System.out.println("Is a prime number");
+    }
+
     public static void main(String[] args) {
         LogicalPrograms logic = new LogicalPrograms();
         System.out.println("Enter Choice : ");
-        System.out.print("1) Fibonacci Series  2) Perfect Number : ");
+        System.out.print("1)Fibonacci Series  2)Perfect Number 3)Prime Number : ");
         int choice=sc.nextInt();
         switch (choice){
             case 1 -> logic.fibonacci();
             case 2 -> logic.perfectNumber();
+            case 3 -> logic.primeNumber();
         }
     }
 }
