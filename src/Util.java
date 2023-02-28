@@ -22,7 +22,28 @@ public class Util {
         System.out.println("Day of the week = " + dayOfWeek);
     }
 
+    public static void temperatureConversion(double temp, int choice) {
+        if (choice == 1) {
+            System.out.println((temp * 9.0 / 5) + 32);
+        }
+        System.out.println((temp - 32) * 5.0 / 9);
+    }
+
+    public static void operateTempConversion() {
+        System.out.print("Enter choice : 1) Celsius to Fahrenheit  2) Fahrenheit to Celsius : ");
+        int choice = sc.nextInt();
+        System.out.println("Enter temperature : ");
+        double temp = sc.nextDouble();
+        temperatureConversion(temp, choice);
+    }
+
     public static void main(String[] args) {
-        operateDayOfWeek();
+        System.out.println("Enter Choice : ");
+        System.out.println("1)Day of week  2)temperature conversion : ");
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1 -> operateDayOfWeek();
+            case 2 -> operateTempConversion();
+        }
     }
 }
