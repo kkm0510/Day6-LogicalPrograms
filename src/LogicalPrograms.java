@@ -110,11 +110,33 @@ public class LogicalPrograms {
         System.out.println("Time elapsed = " + mins + " minutes");
     }
 
+    public static int computeNotes(int[] arrNotes, int i, int change, int count) {
+        if (change == 0) {
+            return count;
+        }
+        int noteCount = 0;
+        while (change / arrNotes[i] > 0) {
+            count++;
+            change -= arrNotes[i];
+            noteCount++;
+        }
+        if (noteCount != 0)
+            System.out.println(arrNotes[i] + " -> " + noteCount + " notes");
+        return computeNotes(arrNotes, i + 1, change, count);
+    }
+
+    public void vendingMachine(){
+        int[] arrNotes = {1000, 500, 100, 50, 10, 5, 2, 1};
+        System.out.print("Enter money to be withdrawn : ");
+        int change = sc.nextInt();
+        int count = computeNotes(arrNotes, 0, change, 0);
+        System.out.println("Total notes = " + count);
+    }
 
     public static void main(String[] args) {
         LogicalPrograms logic = new LogicalPrograms();
         System.out.println("Enter Choice : ");
-        System.out.print("1)Fibonacci Series  2)Perfect Number 3)Prime Number 4)Reverse a num 5)Coupon Numbers 6)Stopwatch: ");
+        System.out.println("1)Fibonacci Series  2)Perfect Number 3)Prime Number 4)Reverse a num 5)Coupon Numbers 6)Stopwatch 7)Vending Machine : ");
         int choice = sc.nextInt();
         switch (choice) {
             case 1 -> logic.fibonacci();
@@ -123,6 +145,8 @@ public class LogicalPrograms {
             case 4 -> logic.reverseNumber();
             case 5 -> logic.couponNumber();
             case 6 -> logic.stopWatch();
+            case 7 -> logic.vendingMachine();
+
         }
     }
 }
