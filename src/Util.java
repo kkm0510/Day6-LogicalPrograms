@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Util {
 
     static Scanner sc = new Scanner(System.in);
+
     public static int dayOfWeek(int m, int d, int y) {
         int y0 = y - (14 - m) / 12;
         int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
@@ -61,15 +62,32 @@ public class Util {
         System.out.println("Ans = " + t);
     }
 
+    public static StringBuilder toBinary(int num) {
+        StringBuilder s=new StringBuilder();
+        while(num!=0){
+            s.append(num%2);
+            num=num/2;
+        }
+        while(s.length()<8){
+            s.append(0);
+        }
+        return s.reverse();
+    }
+
     public static void main(String[] args) {
         System.out.println("Enter Choice : ");
-        System.out.println("1)Day of week  2)temperature conversion 3)Monthly payment 4)Square root : ");
+        System.out.print("1)Day of week  2)temperature conversion 3)Monthly payment 4)Square root 5)to binary : ");
         int choice = sc.nextInt();
         switch (choice) {
             case 1 -> operateDayOfWeek();
             case 2 -> operateTempConversion();
             case 3 -> monthlyPayment();
             case 4 -> sqrt();
+            case 5 -> {
+                System.out.print("Enter a number : ");
+                StringBuilder s = toBinary(sc.nextInt());
+                System.out.println("Binary = " + s);
+            }
         }
     }
 }
