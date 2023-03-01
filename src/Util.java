@@ -68,6 +68,17 @@ public class Util {
             s.append(num%2);
             num=num/2;
         }
+        int i = 2;
+        boolean checked = false;
+        while (!checked) {
+            if (s.length() <= i) {
+                while (s.length() < i) {
+                    s.append(0);
+                }
+                checked = true;
+            }
+            i *= 2;
+        }
         return s.reverse();
     }
 
